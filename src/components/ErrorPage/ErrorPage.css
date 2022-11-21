@@ -1,0 +1,27 @@
+main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+main > h1 {
+    color: #000000;
+    font-size: 12.5rem;
+    letter-spacing: .10em;
+    margin: .025em 0;
+    text-shadow: .05em .05em 0 rgba(0, 0, 0, .25);
+    white-space: nowrap;
+}
+
+main > h2 {
+    color: #313131;
+    margin-bottom: .40em;
+}
+
+main > p {
+    color: rgb(118, 118, 118);
+    margin-top: 0;
+}
