@@ -67,6 +67,7 @@ function AccountBasket() {
                         <th scope="col">#</th>
                         <th scope="col">Product</th>
                         <th scope="col">Count</th>
+                        <th scope="col">Price</th>
                         <th scope="col">Paid</th>
                         <th scope="col">Delete</th>
                     </tr>
@@ -79,6 +80,7 @@ function AccountBasket() {
                                     <th scope="row">{index + 1}</th>
                                     <td>{products.find(p => p.id === elem.product_id)?.name}</td>
                                     <td>{elem?.count}</td>
+                                    <td>{(elem?.count * products.find(p => p.id === elem.product_id)?.price).toFixed(2)}</td>
                                     <td>{(elem?.is_paid) ? <div>Is paid</div> : <button type="button" className="btn btn-primary" onClick={() => { Paid(elem.id) }}>Paid</button>}</td>
                                     <td>{(elem?.is_paid) ? null : <button type="button" className="btn btn-danger" onClick={() => { Delete(elem.id) }}>Remove</button>}</td>
                                 </tr>

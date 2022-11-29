@@ -1,9 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import ErrorPage from './components/ErrorPage/ErrorPage';
 import InfoPage from './components/InfoPage/InfoPage';
 import HomeLayout from './components/Layout/HomeLayout/HomeLayout';
-import Products from './components/ProductList/ProductList';
+import ErrorPage from './components/Layout/ErrorPage/ErrorPage';
+// Catalog
+import Products from './components/Catalog/ProductList/ProductList';
+import ProductsByCategory from './components/Catalog/ProductByCategory/ProductByCategory';
 // Account
 import LoginPage from './components/Account/Login/Login';
 import RegisterPage from './components/Account/Registration/RegisterPage';
@@ -31,17 +33,17 @@ function App() {
     <Routes>
       <Route path="/" element={<HomeLayout />}>
         <Route index element={<Products />} />
-        {// Category
+        {//Admin Panel (Category)
         }
         <Route path="admin/category" element={<AdminListCategory />} />
         <Route path="admin/category/add" element={<AddCategory />} />
         <Route path="admin/category/edit/:id" element={<EditCategory />} />
-        {//Admin Panel (Add)
+        {//Admin Panel (User)
         }
         <Route path="admin/user" element={<AdminListUser />} />
         <Route path="admin/user/edit/:id" element={<EditUser />} />
         <Route path="admin/user/add" element={<AddUser />} />
-        {//Admin Panel (Edit)
+        {//Admin Panel (Product)
         }
         <Route path="admin/product" element={<AdminListProduct />} />
         <Route path="admin/product/edit/:id" element={<EditProduct />} />
@@ -51,14 +53,15 @@ function App() {
         <Route path="admin/basket" element={<AdminListBasket />} />
         <Route path="admin/basket/add" element={<AddBasket />} />
         <Route path="admin/basket/edit/:id" element={<EditBasket />} />
-        {//Other
+        {//Account
         }
         <Route path="register" element={<RegisterPage />} />
         <Route path="login" element={<LoginPage />} />
+        <Route path="baskets" element={<AccountBasket />} />
         {//Other
         }
         <Route path="contacts" element={<InfoPage />} />
-        <Route path="baskets" element={<AccountBasket />} />
+        <Route path="products/category/:id" element={<ProductsByCategory />} />
         <Route path="*" element={<ErrorPage />} />
       </Route>
     </Routes>

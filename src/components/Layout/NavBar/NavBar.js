@@ -116,7 +116,7 @@ function Navbar() {
                                         <div className="nav-link active"><b>{email}</b></div>
                                     </li>
                                     <li className="nav-item">
-                                        <div className="nav-link active">Balance: <b style={(balance > 0) ? { color: "green" } : { color: "red" }}>{balance}$</b></div>
+                                        <div className="nav-link active">Balance: <b style={(balance > 0) ? { color: "green" } : { color: "red" }}>{balance.toFixed(2)}$</b></div>
                                     </li>
                                     <li className="nav-item">
                                         <button type="button" className="btn btn-primary" onClick={LogOut}>Log out</button>
