@@ -1,13 +1,14 @@
 import { useCookies } from "react-cookie";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 function Navbar() {
     const [cookies, removeCookie] = useCookies(['token']);
     const [email, setEmail] = useState('');
-    const [balance, setBalance,] = useState(0);
+    const [balance, setBalance,] = useState(0.0);
     const [is_admin, setIsAdmin] = useState(false);
+    const navigator = useNavigate();
     useEffect(() => {
         if (cookies.token !== '0') {
             var data = {
@@ -108,6 +109,9 @@ function Navbar() {
                             (cookies.token !== '0')
                                 ?
                                 <ul className="navbar-nav">
+                                    <li className="nav-item">
+                                        <button type="button" className="btn btn-primary" onClick={() => { navigator('/baskets') }}>🛒</button>
+                                    </li>
                                     <li className="nav-item">
                                         <div className="nav-link active"><b>{email}</b></div>
                                     </li>

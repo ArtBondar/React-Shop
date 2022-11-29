@@ -23,6 +23,7 @@ import AddCategory from './components/AdminPanel/AdminListCategory/AddCategory/A
 import AdminListBasket from './components/AdminPanel/AdminListBasket/AdminListBasket';
 import EditBasket from './components/AdminPanel/AdminListBasket/EditBasket/EditBasket';
 import AddBasket from './components/AdminPanel/AdminListBasket/AddBasket/AddBasket';
+import AccountBasket from './components/Account/AccountBasket/AccountBasket';
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
         {//Other
         }
         <Route path="contacts" element={<InfoPage />} />
+        <Route path="baskets" element={<AccountBasket />} />
         <Route path="*" element={<ErrorPage />} />
       </Route>
     </Routes>
