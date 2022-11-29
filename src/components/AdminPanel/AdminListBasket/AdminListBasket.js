@@ -64,11 +64,11 @@ function AdminListBasket() {
                         baskets.map((elem, index) => {
                             return (
                                 <tr key={index}>
-                                    <th scope="row">{elem.id}</th>
-                                    <td>{users.find(u => u.id === elem.user_id).email}</td>
-                                    <td>{products.find(p => p.id === elem.product_id).name}</td>
-                                    <td>{elem.count}</td>
-                                    <td>{(elem.is_paid) ? <div>Yes</div> : <div>No</div>}</td>
+                                    <th scope="row">{elem?.id}</th>
+                                    <td>{users.find(u => u.id === elem.user_id)?.email}</td>
+                                    <td>{products.find(p => p.id === elem.product_id)?.name}</td>
+                                    <td>{elem?.count}</td>
+                                    <td>{(elem?.is_paid) ? <div>Yes</div> : <div>No</div>}</td>
                                     <td><button type="button" className="btn btn-primary" onClick={() => { navigate(`/admin/basket/edit/${elem.id}`) }}>Edit</button></td>
                                     <td><button type="button" className="btn btn-danger" onClick={() => { Delete(elem.id) }}>Delete</button></td>
                                 </tr>

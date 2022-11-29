@@ -45,8 +45,8 @@ function AdminListCategory() {
                         categories.map((elem, index) => {
                             return (
                                 <tr key={index}>
-                                    <th scope="row">{elem.id}</th>
-                                    <td>{elem.name}</td>
+                                    <th scope="row">{elem?.id}</th>
+                                    <td>{elem?.name}</td>
                                     <td><button type="button" className="btn btn-primary" onClick={() => { navigate(`/admin/category/edit/${elem.id}`) }}>Edit</button></td>
                                     <td><button type="button" className="btn btn-danger" onClick={() => { Delete(elem.id) }}>Delete</button></td>
                                 </tr>

@@ -57,13 +57,13 @@ function AdminListProduct() {
                             return (
                                 <tr key={index}>
                                     <th scope="row">{elem.id}</th>
-                                    <td>{elem.name}</td>
-                                    <td>{elem.description}</td>
-                                    <td>{elem.price}</td>
+                                    <td>{elem?.name}</td>
+                                    <td>{elem?.description}</td>
+                                    <td>{elem?.price}</td>
                                     <td><img src={elem.img} width="50px" /></td>
-                                    <td>{categories.find(c => c.id === elem.category_id).name}</td>
+                                    <td>{categories.find(c => c.id === elem?.category_id)?.name}</td>
                                     <td><button type="button" className="btn btn-primary" onClick={() => { navigate(`/admin/product/edit/${elem.id}`) }}>Edit</button></td>
-                                    <td><button type="button" className="btn btn-danger" onClick={() => { Delete(elem.id) }}>Delete</button></td>
+                                    <td><button type="button" className="btn btn-danger" onClick={() => { Delete(elem?.id) }}>Delete</button></td>
                                 </tr>
                             )
                         })

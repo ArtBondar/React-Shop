@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
     const [email, SetEmail] = useState(0);
     const [password, SetPassword] = useState(0);
     const [password1, SetPassword1] = useState(0);
-
+    const navigator = useNavigate();
     const Valid = () => {
         return password === password1;
     }
@@ -19,11 +20,11 @@ const RegisterPage = () => {
         axios.post("http://localhost:8080/api/user/register", data)
             .then(response => {
                 console.log(response.data);
+                navigator('/');
             })
             .catch(e => {
                 console.log(e);
             });
-        
     }
 
     return (

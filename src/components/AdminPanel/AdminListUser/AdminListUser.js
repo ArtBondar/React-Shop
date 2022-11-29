@@ -46,10 +46,10 @@ function AdminListUser() {
                         users.map((elem, index) => {
                             return (
                                 <tr key={index}>
-                                    <th scope="row">{elem.id}</th>
-                                    <td>{elem.email}</td>
-                                    <td>{elem.balance}</td>
-                                    <td>{(elem.is_admin) ? <div>Yes</div> : <div>No</div>}</td>
+                                    <th scope="row">{elem?.id}</th>
+                                    <td>{elem?.email}</td>
+                                    <td>{elem?.balance}</td>
+                                    <td>{(elem?.is_admin) ? <div>Yes</div> : <div>No</div>}</td>
                                     <td><button type="button" className="btn btn-primary" onClick={() => { navigate(`/admin/user/edit/${elem.id}`) }}>Edit</button></td>
                                     <td><button type="button" className="btn btn-danger" onClick={() => { Delete(elem.id) }}>Delete</button></td>
                                 </tr>
