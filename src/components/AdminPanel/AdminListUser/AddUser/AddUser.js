@@ -18,7 +18,6 @@ const AddUser = () => {
         }
         axios.post("http://localhost:8080/api/user", data)
             .then(response => {
-                console.log(response.data);
                 navigate('/admin/user');
             })
             .catch(e => {

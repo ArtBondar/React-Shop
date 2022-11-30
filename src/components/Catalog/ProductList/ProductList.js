@@ -24,7 +24,7 @@ function ProductsPage() {
                 console.log(e);
                 return null;
             })
-    }, []);
+    }, [products.length]);
     return (
         <div>
             <div className="row">
@@ -33,7 +33,7 @@ function ProductsPage() {
                         {
                             categories.map((elem, index) => {
                                 return (
-                                    <a key={index} className="list-group-item list-group-item-action" onClick={() => { navigator(`/products/category/${elem.id}`); window.location.reload(); }}>{elem.name}</a>
+                                    <a key={index} className="list-group-item list-group-item-action" onClick={() => { navigator(`/products/category/${elem.id}`); }}>{elem.name}</a>
                                 );
                             })
                         }
@@ -50,7 +50,7 @@ function ProductsPage() {
                                     <span style={{ color: "green" }}>{elem.price}$</span>
                                     <p><b>{categories.find(c => c.id === elem.category_id)?.name}</b></p>
                                     <p>{elem.description}</p>
-                                    <button type="button" className="btn btn-primary">Add to Basket</button>
+                                    <button type="button" className="btn btn-primary" onClick={() => { navigator(`/basket/${elem.id}`) }}>Add to Basket</button>
                                 </div>
                             )
                         })
@@ -58,7 +58,7 @@ function ProductsPage() {
                 </div>
             </div>
 
-        </div>
+        </div >
     );
 }
 

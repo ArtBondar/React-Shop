@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 function AdminListUser() {
     const navigate = useNavigate();
     const [users, setUsers] = useState([]);
+    const [flag, SetFlag] = useState(false);
     useEffect(() => {
         axios.get('http://localhost:8080/api/user')
             .then(res => {
@@ -15,11 +16,11 @@ function AdminListUser() {
                 console.log(e);
                 return null;
             })
-    }, []);
+    }, [users.length, flag]);
     const Delete = (id) => {
         axios.delete(`http://localhost:8080/api/user/${id}`)
             .then(res => {
-                window.location.reload();
+                SetFlag((prev) => !prev);
             })
             .catch(e => {
                 console.log(e);

@@ -29,7 +29,6 @@ const EditUser = () => {
         };
         axios.put(`http://localhost:8080/api/user/${id}`, data)
             .then(res => {
-                console.log(res);
                 navigate('/admin/user');
             })
             .catch(e => {

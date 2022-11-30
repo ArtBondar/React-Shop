@@ -26,6 +26,7 @@ import AdminListBasket from './components/AdminPanel/AdminListBasket/AdminListBa
 import EditBasket from './components/AdminPanel/AdminListBasket/EditBasket/EditBasket';
 import AddBasket from './components/AdminPanel/AdminListBasket/AddBasket/AddBasket';
 import AccountBasket from './components/Account/AccountBasket/AccountBasket';
+import AddToBasket from './components/Catalog/AddToBasket/AddToBasket';
 
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
         }
         <Route path="contacts" element={<InfoPage />} />
         <Route path="products/category/:id" element={<ProductsByCategory />} />
+        <Route path="basket/:id" element={<AddToBasket />} />
         <Route path="*" element={<ErrorPage />} />
       </Route>
     </Routes>

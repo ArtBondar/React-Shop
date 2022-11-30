@@ -9,6 +9,7 @@ function Navbar() {
     const [balance, setBalance,] = useState(0.0);
     const [is_admin, setIsAdmin] = useState(false);
     const navigator = useNavigate();
+
     useEffect(() => {
         if (cookies.token !== '0') {
             var data = {
@@ -25,11 +26,13 @@ function Navbar() {
                     return null;
                 })
         }
-    }, []);
+    }, [cookies.token]);
 
     const LogOut = () => {
         removeCookie('token', '0');
-        window.location.reload();
+        setEmail('');
+        setBalance(0.0);
+        setIsAdmin(false);
     }
 
     return (

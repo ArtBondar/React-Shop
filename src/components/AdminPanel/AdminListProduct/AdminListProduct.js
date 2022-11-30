@@ -6,6 +6,7 @@ function AdminListProduct() {
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [flag, SetFlag] = useState(false);
     useEffect(() => {
         axios.get('http://localhost:8080/api/product')
             .then(res => {
@@ -23,11 +24,11 @@ function AdminListProduct() {
                 console.log(e);
                 return null;
             })
-    }, []);
+    }, [products.length, flag]);
     const Delete = (id) => {
         axios.delete(`http://localhost:8080/api/product/${id}`)
             .then(res => {
-                window.location.reload();
+                SetFlag((prev) => !prev);
             })
             .catch(e => {
                 console.log(e);

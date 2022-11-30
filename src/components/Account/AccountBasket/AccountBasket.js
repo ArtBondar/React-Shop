@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
 function AccountBasket() {
-    const navigate = useNavigate();
     const [cookies, removeCookie] = useCookies(['token']);
     const [baskets, setBaskets] = useState([]);
     const [products, SetProducts] = useState([]);
-
+    const [flag, setFlag] = useState(false);
     useEffect(() => {
         if (cookies.token !== '0') {
             var data = {
@@ -23,7 +21,6 @@ function AccountBasket() {
                     console.log(e);
                 });
         }
-
         axios.get('http://localhost:8080/api/product')
             .then(res => {
                 SetProducts(res.data);
@@ -31,7 +28,7 @@ function AccountBasket() {
             .catch(e => {
                 console.log(e);
             });
-    }, []);
+    }, [cookies.token, baskets.length, flag]);
 
     const Paid = (id) => {
         if (cookies.token !== '0') {
@@ -52,7 +49,7 @@ function AccountBasket() {
     const Delete = (id) => {
         axios.delete(`http://localhost:8080/api/basket/${id}`)
             .then(res => {
-                window.location.reload();
+                setFlag((prev) => !prev);
             })
             .catch(e => {
                 console.log(e);

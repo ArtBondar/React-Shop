@@ -5,22 +5,21 @@ import { useNavigate } from "react-router-dom";
 function AdminListCategory() {
     const navigate = useNavigate();
     const [categories, setCategories] = useState([]);
+    const [flag, SetFlag] = useState(false);
     useEffect(() => {
         axios.get('http://localhost:8080/api/category')
             .then(res => {
-                console.log(res.data);
                 setCategories(res.data);
             })
             .catch(e => {
                 console.log(e);
                 return null;
             })
-    }, []);
+    }, [categories.length]);
     const Delete = (id) => {
         axios.delete(`http://localhost:8080/api/category/${id}`)
             .then(res => {
-                console.log(res.data);
-                window.location.reload();
+                SetFlag((prev) => !prev);
             })
             .catch(e => {
                 console.log(e);
@@ -29,8 +28,8 @@ function AdminListCategory() {
     }
     return (
         <div>
-            <button type="button" className="btn btn-success" onClick={() => {navigate('/admin/category/add')}}>Add new Category</button>
-            <br/>
+            <button type="button" className="btn btn-success" onClick={() => { navigate('/admin/category/add') }}>Add new Category</button>
+            <br />
             <table className="table">
                 <thead>
                     <tr>

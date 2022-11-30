@@ -23,7 +23,6 @@ const EditBasket = () => {
             .catch(e => {
                 console.log(e);
             });
-
         axios.get('http://localhost:8080/api/user')
             .then(res => {
                 SetUsers(res.data);
@@ -31,7 +30,6 @@ const EditBasket = () => {
             .catch(e => {
                 console.log(e);
             });
-
         axios.get('http://localhost:8080/api/product')
             .then(res => {
                 SetProducts(res.data);

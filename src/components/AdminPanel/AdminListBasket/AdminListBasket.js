@@ -7,6 +7,7 @@ function AdminListBasket() {
     const [baskets, setBaskets] = useState([]);
     const [users, SetUsers] = useState([]);
     const [products, SetProducts] = useState([]);
+    const [flag, SetFlag] = useState(false);
 
     useEffect(() => {
         axios.get('http://localhost:8080/api/basket')
@@ -32,11 +33,11 @@ function AdminListBasket() {
             .catch(e => {
                 console.log(e);
             });
-    }, []);
+    }, [baskets.length, flag]);
     const Delete = (id) => {
         axios.delete(`http://localhost:8080/api/basket/${id}`)
             .then(res => {
-                window.location.reload();
+                SetFlag((prev) => !prev);
             })
             .catch(e => {
                 console.log(e);
