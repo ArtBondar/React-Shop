@@ -18,11 +18,12 @@ const RegisterPage = () => {
             password: password
         };
         axios.post("http://localhost:8080/api/user/register", data)
-            .then(response => {
-                console.log(response.data);
+            .then(res => {
                 navigator('/');
             })
             .catch(e => {
+                if (e.response.data.email != undefined)
+                    navigator('/');
                 console.log(e);
             });
     }

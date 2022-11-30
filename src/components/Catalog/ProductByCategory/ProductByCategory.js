@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import "./OneProduct.css";
 import { useNavigate, useParams } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 function ProductsByCategory() {
     const id = useParams().id;
     const navigator = useNavigate();
     const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [cookies] = useCookies(['token']);
     useEffect(() => {
         axios.get(`http://localhost:8080/api/product/category/${id}`)
             .then(res => {
@@ -52,7 +54,7 @@ function ProductsByCategory() {
                                     <span style={{ color: "green" }}>{elem.price}$</span>
                                     <p><b>{categories.find(c => c.id === elem.category_id)?.name}</b></p>
                                     <p>{elem.description}</p>
-                                    <button type="button" className="btn btn-primary" onClick={() => { navigator(`/basket/${elem.id}`) }}>Add to Basket</button>
+                                    {(cookies.token !== '0') ? <button type="button" className="btn btn-primary" onClick={() => { navigator(`/basket/${elem.id}`) }}>Add to Basket</button> : null}
                                 </div>
                             )
                         })
