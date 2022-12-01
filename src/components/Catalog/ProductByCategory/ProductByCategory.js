@@ -53,8 +53,8 @@ function ProductsByCategory() {
                                     <h4><b>{elem.name}</b></h4>
                                     <span style={{ color: "green" }}>{elem.price}$</span>
                                     <p><b>{categories.find(c => c.id === elem.category_id)?.name}</b></p>
-                                    <p>{elem.description}</p>
-                                    {(cookies.token !== '0') ? <button type="button" className="btn btn-primary" onClick={() => { navigator(`/basket/${elem.id}`) }}>Add to Basket</button> : null}
+                                    <p><button type="button" className="btn btn-primary" onClick={() => { navigator(`/product/${elem.id}`) }}>Details</button></p>
+                                    {(cookies.token !== '0') ? <p><button type="button" className="btn btn-primary" onClick={() => { navigator(`/basket/${elem.id}`) }}>Add to Basket</button></p> : null}
                                 </div>
                             )
                         })
