@@ -37,7 +37,7 @@ function Navbar() {
 
     return (
         <header>
-            <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                 <div className="container">
                     <Link className="navbar-brand" to="/">
                         My Shop
@@ -64,48 +64,51 @@ function Navbar() {
                             </li>
                             {
                                 (!is_admin) ?
-                                    <>
-
-                                    </>
+                                    null
                                     :
-                                    <>
-                                        <li className="nav-item">
-                                            <Link
-                                                className="nav-link active"
-                                                aria-current="page"
-                                                to="/admin/category"
-                                            >
-                                                Categories[Admin]
-                                            </Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link
-                                                className="nav-link active"
-                                                aria-current="page"
-                                                to="/admin/product"
-                                            >
-                                                Products[Admin]
-                                            </Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link
-                                                className="nav-link active"
-                                                aria-current="page"
-                                                to="/admin/user"
-                                            >
-                                                Users[Admin]
-                                            </Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link
-                                                className="nav-link active"
-                                                aria-current="page"
-                                                to="/admin/basket"
-                                            >
-                                                Baskets[Admin]
-                                            </Link>
-                                        </li>
-                                    </>
+                                    <li className="nav-item dropdown">
+                                        <a className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Admin Panel
+                                        </a>
+                                        <ul className="dropdown-menu dropdown-menu-dark">
+                                            <li>
+                                                <Link
+                                                    className="dropdown-item"
+                                                    aria-current="page"
+                                                    to="/admin/category"
+                                                >
+                                                    Categories
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link
+                                                    className="dropdown-item"
+                                                    aria-current="page"
+                                                    to="/admin/product"
+                                                >
+                                                    Products
+                                                </Link>
+                                            </li>
+                                            <li >
+                                                <Link
+                                                    className="dropdown-item"
+                                                    aria-current="page"
+                                                    to="/admin/user"
+                                                >
+                                                    Users
+                                                </Link>
+                                            </li>
+                                            <li >
+                                                <Link
+                                                    className="dropdown-item"
+                                                    aria-current="page"
+                                                    to="/admin/basket"
+                                                >
+                                                    Baskets
+                                                </Link>
+                                            </li>
+                                        </ul>
+                                    </li>
                             }
                         </ul>
                         {

@@ -6,8 +6,6 @@ function HomeLayout () {
     return (
         <div>
             <Navbar/>
-            <br />
-            <br />
             <div className="container mt-3">
                 <Outlet/>
             </div>
