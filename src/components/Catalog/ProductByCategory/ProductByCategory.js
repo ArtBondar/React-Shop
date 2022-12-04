@@ -37,7 +37,7 @@ function ProductsByCategory() {
                         {
                             categories.map((elem, index) => {
                                 return (
-                                    <a key={index} className={(elem.id == id) ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action"} onClick={() => { navigator(`/products/category/${elem.id}`); }}>{elem.name}</a>
+                                    <a key={index} className={(elem.id === id) ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action"} onClick={() => { navigator(`/products/category/${elem.id}`); }}>{elem.name}</a>
                                 );
                             })
                         }
