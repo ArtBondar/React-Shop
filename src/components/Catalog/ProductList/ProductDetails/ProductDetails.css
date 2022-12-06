@@ -1,0 +1,9 @@
+.close-btn {
+    position: absolute;
+    margin-left: 450px;
+    margin-top: -30px;
+    font-size: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #000;
+  }
