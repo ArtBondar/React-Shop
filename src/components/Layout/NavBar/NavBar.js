@@ -33,6 +33,7 @@ function Navbar() {
         setEmail('');
         setBalance(0.0);
         setIsAdmin(false);
+        window.location.reload();
     }
 
     return (

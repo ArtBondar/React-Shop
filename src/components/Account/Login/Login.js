@@ -20,6 +20,7 @@ const LoginPage = () => {
                 expires.setTime(expires.getTime() + (response.data.expires_in * 1000))
                 setCookie('token', response.data.token, { path: '/', expires })
                 navigator('/');
+                window.location.reload();
             })
             .catch(e => {
                 console.log(e);

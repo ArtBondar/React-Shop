@@ -104,20 +104,22 @@ function ProductDetails() {
                 <br />
                 <h3>Reviews</h3>
                 <br />
-                <form style={{ border: "1px solid", width: "500px", textAlign: "center", height: "230px" }}>
-                    <div className="mb-3">
-                        <label htmlFor="text" className="form-label" style={{fontSize: "20px"}}>Review Text</label>
-                        <input type="text" className="form-control" value={text} onChange={(e) => setText(e.target.value)} id="text" style={{ width: 450, marginLeft: 25 }} />
-                    </div>
+                {(cookies.token !== '0' && reviews.find(r => r.user_id === users.find(u => u.email === email).id) === undefined) ?
+                    <form style={{ border: "1px solid", width: "500px", textAlign: "center", height: "230px" }}>
+                        <div className="mb-3">
+                            <label htmlFor="text" className="form-label" style={{ fontSize: "20px" }}>Review Text</label>
+                            <input type="text" className="form-control" value={text} onChange={(e) => setText(e.target.value)} id="text" style={{ width: 450, marginLeft: 25 }} />
+                        </div>
 
-                    <div className="mb-3">
-                        <label htmlFor="mark" className="form-label">{'🌟'.repeat(mark)}{'⭐'.repeat(5 - mark)}</label>
-                        <br />
-                        <input type="range" className="form-range" value={mark} onChange={(e) => setMark(e.target.value)} min="1" max="5" style={{ width: 450 }} />
-                    </div>
+                        <div className="mb-3">
+                            <label htmlFor="mark" className="form-label">{'🌟'.repeat(mark)}{'⭐'.repeat(5 - mark)}</label>
+                            <br />
+                            <input type="range" className="form-range" value={mark} onChange={(e) => setMark(e.target.value)} min="1" max="5" style={{ width: 450 }} />
+                        </div>
 
-                    <button type="button" onClick={My_submit} className="btn btn-primary">Send</button>
-                </form>
+                        <button type="button" onClick={My_submit} className="btn btn-primary">Send</button>
+                    </form>
+                    : null}
                 {
                     reviews.map((elem, index) => {
                         return (
